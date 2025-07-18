@@ -15,13 +15,13 @@ update_os
 
 msg_info "Setting Up Hardware Acceleration"
 $STD apt-get -y install {va-driver-all,ocl-icd-libopencl1,intel-opencl-icd,vainfo,intel-gpu-tools}
-if [[ "$CTTYPE" == "0" ]]; then
-  chgrp video /dev/dri
-  chmod 755 /dev/dri
-  chmod 660 /dev/dri/*
-  $STD adduser $(id -u -n) video
-  $STD adduser $(id -u -n) render
-fi
+#if [[ "$CTTYPE" == "0" ]]; then
+#  chgrp video /dev/dri
+#  chmod 755 /dev/dri
+#  chmod 660 /dev/dri/*
+#  $STD adduser $(id -u -n) video
+#  $STD adduser $(id -u -n) render
+#fi
 msg_ok "Set Up Hardware Acceleration"
 
 read -r -p "${TAB3}Do you need the intel-media-va-driver-non-free driver for HW encoding (Debian 12 only)? <y/N> " prompt
